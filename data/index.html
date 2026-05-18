@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <title>数据统计 | 刃律RenAhsAcme - 个人网站</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="刃律RenAhsAcme">
+    <meta name="description" content="我是一名就读于中山大学网络空间安全学院的本科生，感谢你的到访。">
+    
+    
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    
+    
+    
+      <link rel="stylesheet" href="/css/main.min.8462d5fbd94f54f2572e4b32a86fad1683cbb30161a69ff80b419cdd569706f7.css">
+    
+    
+      <link rel="stylesheet" href="/css/_home-big-image.min.490fdce85fac1e8373e172229554c4128079397a58a59432aa7701604687062a.css">
+    
+    
+    
+    
+      <link rel="stylesheet" href="/css/_link-card.min.1e22fa91e7f588654a970398a65f596c16933d16ff72b4f90ec3dcd0291bd49a.css">
+    
+    
+    
+    
+    
+      <link rel="stylesheet" href="/css/_particle-effect.min.b5cd5d88abb66e2616bd89311391376fe6cdb8b764db5663141be36a484717c9.css">
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+      
+      (function() {
+        const aplayerCSS = [
+          'https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css',
+          'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css'
+        ];
+        
+        const aplayerJS = [
+          'https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js',
+          'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js'
+        ];
+        
+        const metingCDNs = [
+          'https://unpkg.com/meting@2/dist/Meting.min.js',
+          'https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js'
+        ];
+        
+        let cssIndex = 0;
+        let jsIndex = 0;
+        let metingIndex = 0;
+        
+        
+        function loadAPlayerCSS() {
+          if (cssIndex >= aplayerCSS.length) {
+            console.error('[音乐播放器] APlayer CSS所有CDN加载失败');
+            loadAPlayerJS(); 
+            return;
+          }
+          
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = aplayerCSS[cssIndex];
+          link.onerror = function() {
+            cssIndex++;
+            loadAPlayerCSS();
+          };
+          link.onload = function() {
+            loadAPlayerJS();
+          };
+          document.head.appendChild(link);
+        }
+        
+        
+        function loadAPlayerJS() {
+          if (jsIndex >= aplayerJS.length) {
+            console.error('[音乐播放器] APlayer JS所有CDN加载失败，音乐播放器可能无法正常工作');
+            return;
+          }
+          
+          const script = document.createElement('script');
+          script.src = aplayerJS[jsIndex];
+          script.onerror = function() {
+            jsIndex++;
+            loadAPlayerJS();
+          };
+          script.onload = function() {
+            
+            loadMetingJS();
+          };
+          document.head.appendChild(script);
+        }
+        
+        
+        function loadMetingJS() {
+          if (metingIndex >= metingCDNs.length) {
+            console.error('[音乐播放器] MetingJS所有CDN加载失败');
+            return;
+          }
+          
+          const script = document.createElement('script');
+          script.src = metingCDNs[metingIndex];
+          script.onerror = function() {
+            metingIndex++;
+            loadMetingJS();
+          };
+          script.onload = function() {
+            
+            window.dispatchEvent(new CustomEvent('metingjs:loaded'));
+          };
+          document.head.appendChild(script);
+        }
+        
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', loadAPlayerCSS);
+        } else {
+          loadAPlayerCSS();
+        }
+      })();
+    </script>
+    
+    
+    <script>
+      window.siteConfig = {
+        pjaxEnabled: 'true',
+        artalkServer: 'https:\/\/artalk.example.com',
+        artalkSite: 'demo-site',
+        
+        
+        pinnedIconColor: '#4CEC12',
+        
+        
+        pinnedTextColor: '#4CEC12',
+        
+        
+        pinnedIconColorDark: '#4CEC12',
+        
+        
+        pinnedTextColorDark: '#4CEC12',
+        
+        
+        encryption: {
+          
+          fullHint: '🔒 此文章已加密，请输入密码查看完整内容',
+          
+          
+          partialHint: '🔐 此部分内容已加密，请输入密码查看',
+          
+          
+          wrongPasswordHint: '❌ 密码错误，请重试',
+          
+          popupTextColor: '#ffffff',
+          popupBackgroundColor: '',
+          popupBackgroundImage: '\/img\/bj.jpg',
+          partialPopupTextColor: '#ffffff',
+          partialPopupBackgroundColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          partialPopupBackgroundImage: ''
+        },
+        
+        danmaku: {
+          enable:  false ,
+          scope: 'all',
+          speed:  3 ,
+          fontSize: 16,
+          opacity:  0.9 ,
+          maxCount: 50,
+          updateInterval: 30000,
+          showAvatar: true,
+          showTime: true,
+          loop:  true ,
+          randomPosition: true,
+          colorful:  true ,
+          antiOverlap: true
+        },
+        
+        currentPage: {
+          url: 'https:\/\/RenAhsAcme.github.io\/data\/',
+          title: '数据统计',
+          type: 'data',
+          kind: 'page'
+        }
+      };
+      
+      
+      (function() {
+        
+        document.documentElement.style.setProperty('--pinned-icon-color', '#4CEC12');
+        
+        
+        document.documentElement.style.setProperty('--pinned-text-color', '#4CEC12');
+        
+        
+        document.documentElement.style.setProperty('--pinned-icon-color-dark', '#4CEC12');
+        
+        
+        document.documentElement.style.setProperty('--pinned-text-color-dark', '#4CEC12');
+        
+      })();
+    </script>
+    
+    
+  </head>
+  
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <a href="/" aria-label="首页">刃律RenAhsAcme - 个人网站</a>
+    </div>
+  
+    
+    <button class="mobile-menu-toggle" aria-label="切换菜单">
+      <i class="fas fa-bars"></i>
+    </button>
+  
+    
+    <nav class="site-nav">
+      <nav class="site-nav-main">
+  
+
+  
+    
+        <a href="/" class="nav-link-main ">
+          <img class="nav-icon" src="/img/icons/shouye.svg" alt="" aria-hidden="true">
+          <span class="nav-text">首页</span>
+        </a>
+    
+  
+    
+      <div class="nav-item-dropdown">
+        <a href="#" class="nav-link-main ">
+          <img class="nav-icon" src="/img/icons/tongji.svg" alt="" aria-hidden="true">
+          <span class="nav-text">统计</span><i class="fas fa-chevron-down nav-dropdown-icon"></i>
+        </a>
+        <div class="nav-dropdown-content">
+      
+        
+          <a href="/posts/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/blog.svg" alt="" aria-hidden="true">
+            归档
+          </a>
+        
+      
+        
+          <a href="/categories/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/fenlei.svg" alt="" aria-hidden="true">
+            分类
+          </a>
+        
+      
+        
+          <a href="/tags/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/biaoqian.svg" alt="" aria-hidden="true">
+            标签
+          </a>
+        
+      
+        
+          <a href="/data/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/shuju.svg" alt="" aria-hidden="true">
+            数据
+          </a>
+        
+      
+    </div>
+      </div>
+    
+  
+    
+      <div class="nav-item-dropdown">
+        <a href="#" class="nav-link-main ">
+          <img class="nav-icon" src="/img/icons/youlian.svg" alt="" aria-hidden="true">
+          <span class="nav-text">网友</span><i class="fas fa-chevron-down nav-dropdown-icon"></i>
+        </a>
+        <div class="nav-dropdown-content">
+      
+        
+          <a href="/links/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/youlian.svg" alt="" aria-hidden="true">
+            友链
+          </a>
+        
+      
+        
+          <a href="/friends-circle/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/youlian.svg" alt="" aria-hidden="true">
+            网友圈
+          </a>
+        
+      
+    </div>
+      </div>
+    
+  
+    
+      <div class="nav-item-dropdown">
+        <a href="#" class="nav-link-main ">
+          <img class="nav-icon" src="/img/icons/shenghuo.svg" alt="" aria-hidden="true">
+          <span class="nav-text">生活</span><i class="fas fa-chevron-down nav-dropdown-icon"></i>
+        </a>
+        <div class="nav-dropdown-content">
+      
+        
+          <a href="/gallery/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/xiangce.svg" alt="" aria-hidden="true">
+            相册
+          </a>
+        
+      
+        
+          <a href="/gear/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/zhuangbei.svg" alt="" aria-hidden="true">
+            装备
+          </a>
+        
+      
+        
+          <a href="/shuoshuo/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/shuoshuo.svg" alt="" aria-hidden="true">
+            说说
+          </a>
+        
+      
+        
+          <a href="/wishlist/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/yuanwang.svg" alt="" aria-hidden="true">
+            愿望清单
+          </a>
+        
+      
+        
+          <a href="/music-planet/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/yinyue.svg" alt="" aria-hidden="true">
+            音乐星球
+          </a>
+        
+      
+        
+          <a href="/bangumi-planet/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/zhuifan.svg" alt="" aria-hidden="true">
+            追番星球
+          </a>
+        
+      
+        
+          <a href="/booklist/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/xiaoshuo.svg" alt="" aria-hidden="true">
+            小说书单
+          </a>
+        
+      
+    </div>
+      </div>
+    
+  
+    
+        <a href="/message/" class="nav-link-main ">
+          <img class="nav-icon" src="/img/icons/liuyan.svg" alt="" aria-hidden="true">
+          <span class="nav-text">留言</span>
+        </a>
+    
+  
+    
+      <div class="nav-item-dropdown">
+        <a href="" class="nav-link-main ">
+          <img class="nav-icon" src="/img/icons/guanyu.svg" alt="" aria-hidden="true">
+          <span class="nav-text">关于</span><i class="fas fa-chevron-down nav-dropdown-icon"></i>
+        </a>
+        <div class="nav-dropdown-content">
+      
+        
+          <a href="/about/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/guanyu.svg" alt="" aria-hidden="true">
+            关于本站
+          </a>
+        
+      
+        
+          <a href="/supporters/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/zhichi.svg" alt="" aria-hidden="true">
+            支持清单
+          </a>
+        
+      
+    </div>
+      </div>
+    
+  
+    
+      <div class="nav-item-dropdown">
+        <a href="" class="nav-link-main ">
+          <img class="nav-icon" src="/img/icons/web.svg" alt="" aria-hidden="true">
+          <span class="nav-text">快速导航</span><i class="fas fa-chevron-down nav-dropdown-icon"></i>
+        </a>
+        <div class="nav-dropdown-content">
+      
+        
+          <a href="https://github.com/RenAhsAcme/SYSU-Network-Solution" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/web.svg" alt="" aria-hidden="true">
+            校园网与软路由
+          </a>
+        
+      
+    </div>
+      </div>
+    
+  
+</nav>
+    </nav>
+  <button class="nav-search-trigger" aria-label="搜索">
+    <i class="fas fa-search"></i>
+  </button>
+  </header>
+  
+  
+  
+
+  
+  <div class="site-wrap">
+    
+      <aside class="site-aside-left">
+        
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="aside-card author-card"
+  
+>
+  
+  
+  <div class="author-card-content"
+    
+  >
+    <div class="aside-avatar">
+      <img src="/img/avatar.webp"
+           alt="avatar"
+           onerror="this.src='\/img\/404.jpg'">
+    </div>
+
+    <div class="aside-name">刃律RenAhsAcme</div>
+    <div class="aside-desc">我是一名就读于中山大学网络空间安全学院的本科生，感谢你的到访。</div>
+  </div>
+</section>
+
+          
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="aside-card announcement-card"
+  
+>
+  
+  
+  <div class="announcement-card-content"
+    
+  >
+    <h3 class="aside-title">
+      <i class="fas fa-bullhorn"></i> 站点公告
+    </h3>
+    <div class="announcement-content">
+      
+        
+          <div class="announcement-item ">
+            <div class="announcement-title">Demo 配置中</div>
+            <div class="announcement-desc">如你所见鸭，这里正在建设中。一些基础装修已经完毕了，现在等待家具的进入。</div>
+            
+              <a href="/about" class="announcement-link">了解更多</a>
+            
+            <div class="announcement-date">2026-05-18</div>
+          </div>
+        
+      
+    </div>
+  </div>
+</section>
+
+          
+        
+          
+            
+
+
+          
+        
+          
+            
+
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      </aside>
+    
+
+    <main class="site-main">
+      
+      
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+      
+      
+    
+  
+  
+  
+
+
+
+      
+      
+<div class="data-page">
+  <header class="data-header">
+    <h1 class="data-title">数据统计</h1>
+    
+    <div class="data-description">
+      <p>RenAhsAcme.github.io当前运行良好。</p>
+<p>了解一些有趣的fact。</p>
+
+    </div>
+    
+  </header>
+
+  <div class="data-container">
+    
+    
+
+    
+    <section class="data-section other-stats">
+      <h2 class="section-title">
+        <i class="fas fa-database"></i> 其他数据
+      </h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value">1</div>
+            <div class="stat-label">文章总数</div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-tags"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value">1</div>
+            <div class="stat-label">标签数量</div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-folder"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value">1</div>
+            <div class="stat-label">分类数量</div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-calendar"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value">2026</div>
+            <div class="stat-label">运行年份</div>
+          </div>
+        </div>
+
+        
+        
+        
+          
+          
+        
+        <div class="stat-card" id="stat-total-words">
+          <div class="stat-icon">
+            <i class="fas fa-edit"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value stat-value-small loading-skeleton" data-words="58">--</div>
+            <div class="stat-label">全站字数</div>
+          </div>
+        </div>
+        
+
+        
+        <div class="stat-card" id="stat-response-time">
+          <div class="stat-icon">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value loading-skeleton">--</div>
+            <div class="stat-label">响应耗时</div>
+          </div>
+        </div>
+        
+
+        
+        <div class="stat-card" id="stat-last-update">
+          <div class="stat-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value loading-skeleton">--</div>
+            <div class="stat-label">最后更新</div>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </section>
+  </div>
+</div>
+
+
+
+
+
+    </main>
+
+    
+      <aside class="site-aside-right">
+        
+        
+          
+            
+
+          
+        
+          
+            
+          
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="aside-card social-media-card"
+  
+>
+  
+  
+  <div class="social-media-card-content"
+    
+  >
+    <h3 class="aside-title">
+      <i class="fas fa-share-alt"></i> 关注我们
+    </h3>
+    
+    
+    <div class="social-media-links">
+      
+        <a href="https://github.com/RenAhsAcme" target="_blank" rel="noopener" class="social-link" 
+           title="GitHub" style="background: #333333;">
+          <i class="fab fa-github"></i>
+          <span class="social-name">GitHub</span>
+        </a>
+      
+        <a href="/index.xml" target="_blank" rel="noopener" class="social-link" 
+           title="RSS" style="background: #333333;">
+          <i class="fas fa-rss"></i>
+          <span class="social-name">RSS</span>
+        </a>
+      
+    </div>
+    
+    
+    
+      
+    
+  </div>
+</section>
+
+          
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="aside-card hitokoto-card"
+  
+>
+  
+  
+  <div class="hitokoto-card-content"
+    
+  >
+    <h3 class="aside-title">
+      <i class="fas fa-quote-left"></i> 一言
+    </h3>
+    <div class="hitokoto-content">
+      <div class="hitokoto-sentence" id="hitokoto-sentence">
+        <span class="hitokoto-loading">正在加载一言...</span>
+      </div>
+      
+      <div class="hitokoto-from" id="hitokoto-from" style="display: none;"></div>
+      
+    </div>
+  </div>
+</section>
+
+
+<script>
+  window.hitokotoConfig = {
+    enabled:  true ,
+    apiType: 'jinrishici',
+    
+    showFrom:  true 
+  };
+</script>
+
+
+
+          
+        
+          
+            
+
+
+          
+        
+          
+            
+
+
+          
+        
+          
+            
+
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+<section class="aside-card recent-posts-card"
+  
+>
+  
+  
+  <div class="recent-posts-card-content"
+    
+  >
+    <h3 class="aside-title"><i class="fas fa-clock"></i> 最新文章</h3>
+    <div class="aside-recent">
+        
+            
+            
+            
+            <a class="recent-item" href="/posts/hello-raa.html/">
+                <div class="recent-thumb">
+                    <img src="/img/index.png" 
+                         alt="你好，世界：前面的区域，马上就能探索了。" 
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='\/img\/404.jpg'">
+                </div>
+                <div class="recent-meta">
+                    <div class="recent-title">你好，世界：前面的区域，马上就能探索了。</div>
+                    <div class="recent-date">2026-05-18</div>
+                </div>
+            </a>
+        
+    </div>
+  </div>
+</section>
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+
+
+
+
+
+          
+        
+      </aside>
+    
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-line">
+      <span>
+        © 
+        
+        
+        
+        
+        
+        
+          
+          
+        
+        
+        
+        
+          2026
+        
+        
+        刃律RenAhsAcme - 个人网站
+      </span>
+    </div>
+    
+    
+    
+    <div class="footer-running-time" data-start-date="2026-05-18">
+      <span class="running-time-prefix">本站已运行</span>
+      <span class="running-time-value">加载中...</span>
+    </div>
+    
+  
+    
+  
+    
+    <div class="footer-custom">
+          <div class="footer-links">
+      <a href="/about">关于</a>
+      <a href="/sitemap.xml">网站地图</a>
+    </div>
+  
+    </div>
+    
+  </footer>
+  
+
+
+
+
+
+<div class="floating-buttons floating-buttons--right">
+  
+    <button id="back-to-top" class="floating-btn" aria-label="返回顶部" title="返回顶部">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+  
+
+  
+  <button id="reading-progress" class="floating-btn" aria-label="阅读进度" title="阅读进度">
+    <span class="progress-number">0</span>
+  </button>
+
+  
+  <button id="fab-settings" class="floating-btn" aria-label="更多操作" title="更多操作">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="3"></circle>
+      <path d="M12 1v6m0 6v6m-6-6h6m6 0h6"></path>
+      <path d="M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24m0-12.73l-4.24 4.24M9.17 14.83l-4.24 4.24"></path>
+    </svg>
+  </button>
+  
+  
+    <button id="theme-toggle" class="floating-btn fab-extra" aria-label="切换主题" title="切换主题">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  
+
+  
+    <button id="sidebar-toggle" class="floating-btn fab-extra" aria-label="切换侧栏" title="切换侧栏">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="9" y1="3" x2="9" y2="21"></line>
+      </svg>
+    </button>
+  
+
+  
+  <button id="immersive-mode" class="floating-btn fab-extra" aria-label="沉浸阅读" title="沉浸阅读模式">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+    </svg>
+  </button>
+
+  
+  <button id="danmaku-mode" class="floating-btn fab-extra" aria-label="评论弹幕" title="评论弹幕">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+      <polyline points="17 2 12 7 7 2"></polyline>
+    </svg>
+  </button>
+</div>
+
+
+<div id="danmaku-container" class="danmaku-container" style="display: none;"></div>
+
+  <div id="search-modal" class="search-modal" aria-hidden="true">
+  <div class="search-overlay"></div>
+  <div class="search-dialog" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <button class="search-close" aria-label="关闭"><i class="fas fa-times"></i></button>
+    <h2 id="search-title">站内搜索</h2>
+    <form action="/search" method="get" class="search-form">
+      <input type="text" name="q" placeholder="输入关键词..." class="search-input" id="search-input" autocomplete="off" />
+      <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+    </form>
+    <div id="search-result-count" class="search-count"></div>
+    <ul id="search-results" class="search-results"></ul>
+  </div>
+  <style>
+    .nav-search-trigger{ background:none;border:none;color:var(--fg);font-size:1rem;cursor:pointer;margin-left:1rem }
+    .search-modal{ position:fixed;inset:0;display:none;z-index:4000 }
+    .search-modal.open{ display:block }
+    .search-overlay{ position:absolute;inset:0;background:rgba(0,0,0,.4) }
+    .search-dialog{ position:relative;max-width:800px;margin:10vh auto;background:var(--bg);border:1px solid color-mix(in srgb, var(--fg) 15%, transparent);border-radius:12px;padding:1rem 1.25rem }
+    .search-close{ position:absolute;right:.75rem;top:.75rem;background:none;border:none;color:var(--fg);cursor:pointer }
+    .search-results{ list-style:none;padding:0;margin:1rem 0;display:grid;gap:.6rem }
+    .search-item{ padding:.6rem .5rem;border-bottom:1px dashed color-mix(in srgb, var(--fg) 12%, transparent);border-radius:6px;transition:transform .2s, box-shadow .2s, background .2s }
+    .search-item:hover{ transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08);background:color-mix(in srgb, var(--accent) 4%, transparent) }
+    .search-title{ color:var(--fg);text-decoration:none;font-weight:600 }
+    .search-desc{ margin:.25rem 0 0;opacity:.8 }
+  </style>
+</div>
+
+
+  
+
+
+
+  
+  
+  
+  
+  
+    
+  
+    
+    
+    
+    
+      
+      
+      
+      
+      
+      
+        
+        
+        
+        
+          
+        
+        
+        
+        
+      
+    
+    
+    
+<div id="music-player-float">
+  <div class="music-player-float-controls">
+    <button class="music-player-float-btn minimize-btn" aria-label="缩小" title="缩小">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+    </button>
+    <button class="music-player-float-btn close-btn" aria-label="关闭" title="关闭">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <div class="music-player-float-drag-handle" title="拖拽移动"></div>
+  <div class="music-player-float-content">
+    
+    
+    
+      
+        <meting-js
+          server="tencent"
+          type="playlist"
+          id="9714621633"
+          
+          autoplay="true"
+          
+          loop="all"
+          order="list"
+          volume="0.7"
+          list-folded="true"
+          list-max-height="340px"
+          
+          
+        ></meting-js>
+      
+    
+    
+  </div>
+</div>
+<script>
+  window.musicFloatPlayerConfig = {
+    enabled:  true ,
+    itemsCount: 1,
+    dataSource: 'aside.music.items(fallback)'
+  };
+</script>
+    
+
+
+
+  
+  
+  
+  
+  
+    <script defer src="/js/main.min.1ceca71fd8efea1f2b16b5499439d286b47caaf4398a78f61a9324339fe58ac3.js"></script>
+  
+  
+  
+    <script defer src="/js/_home-big-image.min.8fe00eb0fe71c3ced562acea9cd22c455998ae29664e9c7a4b5d737f8bc445fd.js"></script>
+  
+  
+  
+    <script defer src="/js/_background.min.fbeeaabc69d9bdaec0ac8e608817af4d58191f93ba85ec56f9e2d4c66300a95d.js"></script>
+  
+  
+  
+    <script defer src="/js/_post-views.min.2a857ba1679d58d281337a770e83234b6c1c193bbcca172a15c8bc13c5753b81.js"></script>
+  
+  
+  
+    <script defer src="/js/_post-reading-time.min.fad0853909ef5caeb2547aaf445dcfd101693e1987fb7376d16245b2c6348880.js"></script>
+  
+  
+  
+  
+  
+  
+  
+    <script defer src="/js/_simple-pjax.min.8b53c3f3059c7422119c3232f1542a4b462c3ecf8e0c4e754afff6a8abf417ba.js"></script>
+  
+  
+  
+  
+  
+    <script defer src="/js/_friends-circle.min.b8b248c8e729eae9452d51cb5ecc5e2898cccaf780a476d59f70cb370e9af901.js"></script>
+  
+  
+  
+  
+  
+  
+  <script>
+        
+        if (!window.siteConfig) {
+          window.siteConfig = {};
+        }
+        Object.assign(window.siteConfig, {
+          siteBackgroundEnabled: 'true',
+          siteBackgroundImage: '\/img\/haibian.jpg',
+          siteBackgroundBlur: '0',
+          siteBackgroundBrightness: '100',
+          siteBackgroundOpacity: '70',
+          
+          mobileTocPopupMode: 'sidebar',
+          effectMode: 'glass',
+          solidColor: '#4fc3f7',
+          
+          homeBigImageEnabled: 'true',
+          homeBigImageMode: 'mode2',
+          homeBigImageTitle: '跨越时空的思念',
+          homeBigImageSubtitle: '你看到了吗？一切已经迎来了黎明。',
+          homeBigImageMode1BackgroundImage: '\/img\/index.png',
+          homeBigImageMode1ArrowAnimation: 'false',
+          homeBigImageMode1ScrollSpeed: '500',
+          homeBigImageMode1CardAnimation: 'true',
+          homeBigImageMode1CardAnimationSpeed: 'normal',
+          homeBigImageMode2FullScreen: 'true',
+          homeBigImageMode2OverlayOpacity: '0.5',
+          homeBigImageMode2CustomBackgroundImage: '\/img\/index.png',
+          
+          typewriterEnable: 'true',
+          typewriterSpeed: '100',
+          typewriterDelay: '1000',
+          typewriterCursor: 'true',
+          typewriterLoop: 'false',
+          
+          pjaxEnabled: 'true',
+          
+          artalkServer: 'https:\/\/artalk.example.com',
+          artalkSite: 'demo-site',
+          
+          umamiApiUrl: '',
+          umamiUseForPostViews: true,
+          
+          particleEffectEnable: 'true',
+          particleEffectCount: '150',
+          particleEffectColor: '',
+          particleEffectLineColor: '',
+          particleEffectLineDistance: '150',
+          particleEffectSpeed: '0.5',
+          particleEffectRadius: '1.5',
+          particleEffectInteractive: 'true',
+          particleEffectZIndex: '0',
+          umamiWebsiteId: '',
+          
+          stickyHeader:  true ,
+          
+          asideWideMode: 'false',
+          
+          fontEnable:  false ,
+          fontType: 'local',
+          fontOnlineUrl: '',
+          fontFamily: '',
+          fontLocalName: '字魂白鸽天行体',
+          fontLocalPath: '\/fonts\/字魂白鸽天行体.ttf',
+          fontLocalFormat: 'ttf',
+          
+          topAnnouncement: {
+            enable: false,
+            mode: 'custom',
+            height: 40,
+            shuoshuo: {
+              apiUrl: '',
+              count: 3,
+              interval: 5000,
+              transitionDuration: 500,
+              showAvatar: true,
+              showTime: true,
+              cacheDuration: 1800000,
+              clickable: true,
+              shuoshuoPageUrl: '/shuoshuo/'
+            }
+          },
+          
+          linkCard: {
+            enable:  true ,
+            cardMode: 'external',
+            openInNewTab:  true ,
+            showArticleInfo:  true ,
+            showArticleTitle:  true ,
+            showArticleDate:  true ,
+            showArticleSummary:  true ,
+            redirectPage:  true ,
+            replaceWhitelist: "[]",
+            pageWhitelist: "[]",
+            elementWhitelist: "[]",
+            redirectWhitelist: "[]",
+            redirect: {
+              pagePath: '\/go\/',
+              countdown:  3 ,
+              showCountdown:  true ,
+              showButton:  true ,
+              safeMessage: '😃 💡倒计时结束自动跳转，也可自行点击跳转，请注意您的账号和财产安全'
+            }
+          }
+        });
+        
+        
+        window.setAsideWidth = function() {
+          if (!window.siteConfig) return;
+          
+          const mode = window.siteConfig.asideWideMode;
+          let asideWidth = '260px'; 
+          
+          
+          const modeStr = String(mode).replace(/^["']|["']$/g, '').toLowerCase();
+          
+          
+          if (mode === true || modeStr === 'true' || modeStr === 'wide') {
+            asideWidth = '415px'; 
+          } else if (modeStr === 'medium') {
+            asideWidth = '332px'; 
+          } else {
+            
+            asideWidth = '260px';
+          }
+          
+          document.documentElement.style.setProperty('--aside-width', asideWidth);
+        };
+        
+        
+        window.setAsideWidth();
+        
+        
+        window.setFontFamily = function() {
+          if (!window.siteConfig) {
+            console.warn('setFontFamily: siteConfig not found');
+            return;
+          }
+          
+          
+          const fontEnable = window.siteConfig.fontEnable === true || 
+                            window.siteConfig.fontEnable === 'true' || 
+                            String(window.siteConfig.fontEnable).toLowerCase() === 'true';
+          
+          if (!fontEnable) {
+            
+            document.documentElement.style.setProperty('--font-family', '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif');
+            return;
+          }
+          
+          const fontType = String(window.siteConfig.fontType || 'online').toLowerCase();
+          let fontFamily = '';
+          
+          if (fontType === 'local') {
+            
+            const localName = String(window.siteConfig.fontLocalName || '').trim();
+            if (localName) {
+              
+              const cleanName = localName.replace(/^["']|["']$/g, '');
+              fontFamily = `'${cleanName}', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif`;
+            }
+          } else {
+            
+            const onlineFontFamily = String(window.siteConfig.fontFamily || '').trim();
+            if (onlineFontFamily) {
+              
+              const cleanFamily = onlineFontFamily.replace(/^["']|["']$/g, '');
+              fontFamily = `${cleanFamily}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif`;
+            }
+          }
+          
+          if (fontFamily) {
+            document.documentElement.style.setProperty('--font-family', fontFamily);
+            
+            document.body.style.fontFamily = fontFamily;
+          }
+        };
+        
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', window.setFontFamily);
+        } else {
+          
+          window.setFontFamily();
+        }
+  </script>
+  
+  
+  
+  
+  
+  
+  
+    
+      <script src="/js/_link-card.min.5fb686b5c2fa427aa5ff80ddc2a978edeadc5f02269c802fb22c00c67af7f48b.js"></script>
+    
+  
+</body>
+</html>
