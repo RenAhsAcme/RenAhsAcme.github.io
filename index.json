@@ -1,7 +1,14 @@
 [{
-    "title": "你好，世界：前面的区域，马上就能探索了。",
-    "description": "我想声明一些事情。",
-    "url": "/posts/hello-raa.html/",
+    "title": "我对 SPH 的批判",
+    "description": "SPH 就是 Shit。",
+    "url": "/posts/hello-world.html/",
+    "date": "2026-05-20",
+    "tags": ["阴湿"],
+    "categories": ["阴湿"]
+  },{
+    "title": "你好，世界：前面的区域，可以开始探索了。",
+    "description": "欢迎到访。",
+    "url": "/posts/hello-world.html/",
     "date": "2026-05-18",
     "tags": ["关于我"],
     "categories": ["关于我"]

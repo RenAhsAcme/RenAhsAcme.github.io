@@ -2,16 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://RenAhsAcme.github.io/categories/</loc>
-    <lastmod>2026-05-18T21:46:00+08:00</lastmod>
-  </url><url>
     <loc>https://RenAhsAcme.github.io/posts/</loc>
-    <lastmod>2026-05-18T21:46:00+08:00</lastmod>
+    <lastmod>2026-05-20T17:44:00+08:00</lastmod>
+  </url><url>
+    <loc>https://RenAhsAcme.github.io/categories/</loc>
+    <lastmod>2026-05-20T17:44:00+08:00</lastmod>
   </url><url>
     <loc>https://RenAhsAcme.github.io/tags/</loc>
-    <lastmod>2026-05-18T21:46:00+08:00</lastmod>
+    <lastmod>2026-05-20T17:44:00+08:00</lastmod>
   </url><url>
-    <loc>https://RenAhsAcme.github.io/posts/hello-raa.html/</loc>
+    <loc>https://RenAhsAcme.github.io/posts/hello-world.html/</loc>
+    <lastmod>2026-05-20T17:44:00+08:00</lastmod>
+  </url><url>
+    <loc>https://RenAhsAcme.github.io/categories/%E9%98%B4%E6%B9%BF/</loc>
+    <lastmod>2026-05-20T17:44:00+08:00</lastmod>
+  </url><url>
+    <loc>https://RenAhsAcme.github.io/tags/%E9%98%B4%E6%B9%BF/</loc>
+    <lastmod>2026-05-20T17:44:00+08:00</lastmod>
+  </url><url>
+    <loc>https://RenAhsAcme.github.io/gallery/</loc>
+    <lastmod>2026-05-18T15:25:00+00:00</lastmod>
+  </url><url>
+    <loc>https://RenAhsAcme.github.io/posts/hello-world.html/</loc>
     <lastmod>2026-05-18T21:46:00+08:00</lastmod>
   </url><url>
     <loc>https://RenAhsAcme.github.io/categories/%E5%85%B3%E4%BA%8E%E6%88%91/</loc>

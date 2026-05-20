@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <title>我对 SPH 的批判 | 刃律RenAhsAcme</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="刃律RenAhsAcme">
+    <meta name="description" content="SPH 就是 Shit。">
+    
+    
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    
+    
+    
+      <link rel="stylesheet" href="/css/main.min.8462d5fbd94f54f2572e4b32a86fad1683cbb30161a69ff80b419cdd569706f7.css">
+    
+    
+      <link rel="stylesheet" href="/css/_home-big-image.min.490fdce85fac1e8373e172229554c4128079397a58a59432aa7701604687062a.css">
+    
+    
+    
+    
+      <link rel="stylesheet" href="/css/_link-card.min.1e22fa91e7f588654a970398a65f596c16933d16ff72b4f90ec3dcd0291bd49a.css">
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+      
+      (function() {
+        const aplayerCSS = [
+          'https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css',
+          'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css'
+        ];
+        
+        const aplayerJS = [
+          'https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js',
+          'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js'
+        ];
+        
+        const metingCDNs = [
+          'https://unpkg.com/meting@2/dist/Meting.min.js',
+          'https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js'
+        ];
+        
+        let cssIndex = 0;
+        let jsIndex = 0;
+        let metingIndex = 0;
+        
+        
+        function loadAPlayerCSS() {
+          if (cssIndex >= aplayerCSS.length) {
+            console.error('[音乐播放器] APlayer CSS所有CDN加载失败');
+            loadAPlayerJS(); 
+            return;
+          }
+          
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = aplayerCSS[cssIndex];
+          link.onerror = function() {
+            cssIndex++;
+            loadAPlayerCSS();
+          };
+          link.onload = function() {
+            loadAPlayerJS();
+          };
+          document.head.appendChild(link);
+        }
+        
+        
+        function loadAPlayerJS() {
+          if (jsIndex >= aplayerJS.length) {
+            console.error('[音乐播放器] APlayer JS所有CDN加载失败，音乐播放器可能无法正常工作');
+            return;
+          }
+          
+          const script = document.createElement('script');
+          script.src = aplayerJS[jsIndex];
+          script.onerror = function() {
+            jsIndex++;
+            loadAPlayerJS();
+          };
+          script.onload = function() {
+            
+            loadMetingJS();
+          };
+          document.head.appendChild(script);
+        }
+        
+        
+        function loadMetingJS() {
+          if (metingIndex >= metingCDNs.length) {
+            console.error('[音乐播放器] MetingJS所有CDN加载失败');
+            return;
+          }
+          
+          const script = document.createElement('script');
+          script.src = metingCDNs[metingIndex];
+          script.onerror = function() {
+            metingIndex++;
+            loadMetingJS();
+          };
+          script.onload = function() {
+            
+            window.dispatchEvent(new CustomEvent('metingjs:loaded'));
+          };
+          document.head.appendChild(script);
+        }
+        
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', loadAPlayerCSS);
+        } else {
+          loadAPlayerCSS();
+        }
+      })();
+    </script>
+    
+    
+    <script>
+      window.siteConfig = {
+        pjaxEnabled: 'true',
+        artalkServer: 'https:\/\/artalk.example.com',
+        artalkSite: 'demo-site',
+        
+        
+        pinnedIconColor: '#4CEC12',
+        
+        
+        pinnedTextColor: '#4CEC12',
+        
+        
+        pinnedIconColorDark: '#4CEC12',
+        
+        
+        pinnedTextColorDark: '#4CEC12',
+        
+        
+        encryption: {
+          
+          fullHint: '🔒 此文章已加密，请输入密码查看完整内容',
+          
+          
+          partialHint: '🔐 此部分内容已加密，请输入密码查看',
+          
+          
+          wrongPasswordHint: '❌ 密码错误，请重试',
+          
+          popupTextColor: '#ffffff',
+          popupBackgroundColor: '',
+          popupBackgroundImage: '\/img\/bj.jpg',
+          partialPopupTextColor: '#ffffff',
+          partialPopupBackgroundColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          partialPopupBackgroundImage: ''
+        },
+        
+        danmaku: {
+          enable:  false ,
+          scope: 'all',
+          speed:  3 ,
+          fontSize: 16,
+          opacity:  0.9 ,
+          maxCount: 50,
+          updateInterval: 30000,
+          showAvatar: true,
+          showTime: true,
+          loop:  true ,
+          randomPosition: true,
+          colorful:  true ,
+          antiOverlap: true
+        },
+        
+        currentPage: {
+          url: 'https:\/\/RenAhsAcme.github.io\/posts\/hello-world.html\/',
+          title: '我对 SPH 的批判',
+          type: 'posts',
+          kind: 'page'
+        }
+      };
+      
+      
+      (function() {
+        
+        document.documentElement.style.setProperty('--pinned-icon-color', '#4CEC12');
+        
+        
+        document.documentElement.style.setProperty('--pinned-text-color', '#4CEC12');
+        
+        
+        document.documentElement.style.setProperty('--pinned-icon-color-dark', '#4CEC12');
+        
+        
+        document.documentElement.style.setProperty('--pinned-text-color-dark', '#4CEC12');
+        
+      })();
+    </script>
+    
+    
+  </head>
+  
+<body class="single-post">
+  <header class="site-header">
+    <div class="logo">
+      <a href="/" aria-label="首页">刃律RenAhsAcme</a>
+    </div>
+  
+    
+    <button class="mobile-menu-toggle" aria-label="切换菜单">
+      <i class="fas fa-bars"></i>
+    </button>
+  
+    
+    <nav class="site-nav">
+      <nav class="site-nav-main">
+  
+
+  
+    
+        <a href="/" class="nav-link-main ">
+          <img class="nav-icon" src="/img/icons/shouye.svg" alt="" aria-hidden="true">
+          <span class="nav-text">首页</span>
+        </a>
+    
+  
+    
+      <div class="nav-item-dropdown">
+        <a href="#" class="nav-link-main ">
+          <img class="nav-icon" src="/img/icons/tongji.svg" alt="" aria-hidden="true">
+          <span class="nav-text">统计</span><i class="fas fa-chevron-down nav-dropdown-icon"></i>
+        </a>
+        <div class="nav-dropdown-content">
+      
+        
+          <a href="/posts/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/blog.svg" alt="" aria-hidden="true">
+            归档
+          </a>
+        
+      
+        
+          <a href="/categories/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/fenlei.svg" alt="" aria-hidden="true">
+            分类
+          </a>
+        
+      
+        
+          <a href="/tags/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/biaoqian.svg" alt="" aria-hidden="true">
+            标签
+          </a>
+        
+      
+        
+          <a href="/data/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/shuju.svg" alt="" aria-hidden="true">
+            数据
+          </a>
+        
+      
+    </div>
+      </div>
+    
+  
+    
+      <div class="nav-item-dropdown">
+        <a href="#" class="nav-link-main ">
+          <img class="nav-icon" src="/img/icons/youlian.svg" alt="" aria-hidden="true">
+          <span class="nav-text">好友</span><i class="fas fa-chevron-down nav-dropdown-icon"></i>
+        </a>
+        <div class="nav-dropdown-content">
+      
+        
+          <a href="/links/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/youlian.svg" alt="" aria-hidden="true">
+            友链
+          </a>
+        
+      
+        
+          <a href="/friends-circle/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/youlian.svg" alt="" aria-hidden="true">
+            好友圈
+          </a>
+        
+      
+    </div>
+      </div>
+    
+  
+    
+      <div class="nav-item-dropdown">
+        <a href="#" class="nav-link-main ">
+          <img class="nav-icon" src="/img/icons/shenghuo.svg" alt="" aria-hidden="true">
+          <span class="nav-text">生活</span><i class="fas fa-chevron-down nav-dropdown-icon"></i>
+        </a>
+        <div class="nav-dropdown-content">
+      
+        
+          <a href="/gallery/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/xiangce.svg" alt="" aria-hidden="true">
+            相册
+          </a>
+        
+      
+        
+          <a href="/wishlist/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/yuanwang.svg" alt="" aria-hidden="true">
+            愿望清单
+          </a>
+        
+      
+        
+          <a href="/music-planet/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/yinyue.svg" alt="" aria-hidden="true">
+            音乐星球
+          </a>
+        
+      
+        
+          <a href="/bangumi-planet/" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/zhuifan.svg" alt="" aria-hidden="true">
+            追番星球
+          </a>
+        
+      
+    </div>
+      </div>
+    
+  
+    
+        <a href="/about/" class="nav-link-main ">
+          <img class="nav-icon" src="/img/icons/guanyu.svg" alt="" aria-hidden="true">
+          <span class="nav-text">关于</span>
+        </a>
+    
+  
+    
+      <div class="nav-item-dropdown">
+        <a href="" class="nav-link-main ">
+          <img class="nav-icon" src="/img/icons/web.svg" alt="" aria-hidden="true">
+          <span class="nav-text">快速导航</span><i class="fas fa-chevron-down nav-dropdown-icon"></i>
+        </a>
+        <div class="nav-dropdown-content">
+      
+        
+          <a href="https://github.com/RenAhsAcme/SYSU-Network-Solution" class="nav-dropdown-link ">
+            <img class="nav-icon" src="/img/icons/web.svg" alt="" aria-hidden="true">
+            校园网与软路由
+          </a>
+        
+      
+    </div>
+      </div>
+    
+  
+</nav>
+    </nav>
+  <button class="nav-search-trigger" aria-label="搜索">
+    <i class="fas fa-search"></i>
+  </button>
+  </header>
+  
+  
+  
+
+  
+  <div class="site-wrap">
+    
+      <aside class="site-aside-left aside-unified">
+        
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="aside-card author-card"
+  
+>
+  
+  
+  <div class="author-card-content"
+    
+  >
+    <div class="aside-avatar">
+      <img src="/img/avatar.webp"
+           alt="avatar"
+           onerror="this.src='\/img\/404.jpg'">
+    </div>
+
+    <div class="aside-name">刃律RenAhsAcme</div>
+    <div class="aside-desc">你看到了吗？一切已经迎来了黎明。
+Did you see? Everything has ushered in the dawn.</div>
+  </div>
+</section>
+
+          
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="aside-card announcement-card"
+  
+>
+  
+  
+  <div class="announcement-card-content"
+    
+  >
+    <h3 class="aside-title">
+      <i class="fas fa-bullhorn"></i> 站点公告
+    </h3>
+    <div class="announcement-content">
+      
+        
+          <div class="announcement-item ">
+            <div class="announcement-title">一切就绪。</div>
+            <div class="announcement-desc">网站基本就绪。欢迎你的到访。</div>
+            
+              <a href="/about" class="announcement-link">了解更多</a>
+            
+            <div class="announcement-date">2026-05-18</div>
+          </div>
+        
+      
+    </div>
+  </div>
+</section>
+
+          
+        
+          
+            
+
+
+          
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="aside-card life-time-card"
+  
+>
+  
+  
+  <div class="life-time-card-content"
+    
+  >
+    <h3 class="aside-title">
+      <i class="fas fa-hourglass-half"></i> 逆行人生
+    </h3>
+    <div class="sidebar-count">
+      <div class="content">
+        <div class="item" id="dayProgress">
+          <div class="title">今日已经过去<span></span>小时</div>
+          <div class="progress">
+            <div class="progress-bar">
+              <div class="progress-inner progress-inner-1"></div>
+            </div>
+            <div class="progress-percentage"></div>
+          </div>
+        </div>
+        <div class="item" id="weekProgress">
+          <div class="title">这周已经过去<span></span>天</div>
+          <div class="progress">
+            <div class="progress-bar">
+              <div class="progress-inner progress-inner-2"></div>
+            </div>
+            <div class="progress-percentage"></div>
+          </div>
+        </div>
+        <div class="item" id="monthProgress">
+          <div class="title">本月已经过去<span></span>天</div>
+          <div class="progress">
+            <div class="progress-bar">
+              <div class="progress-inner progress-inner-3"></div>
+            </div>
+            <div class="progress-percentage"></div>
+          </div>
+        </div>
+        <div class="item" id="yearProgress">
+          <div class="title">今年已经过去<span></span>个月</div>
+          <div class="progress">
+            <div class="progress-bar">
+              <div class="progress-inner progress-inner-4"></div>
+            </div>
+            <div class="progress-percentage"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      </aside>
+    
+
+    <main class="site-main">
+      
+      
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+      
+      
+    
+  
+  
+  
+
+
+
+      
+      
+
+
+
+<article class="post post-detail" 
+  >
+  <header class="post-header">
+    <h1 class="post-title">我对 SPH 的批判</h1>
+    
+    <div class="post-meta">
+      
+      <time class="meta-item post-date">
+        <i class="far fa-calendar-alt"></i> 2026年05月20日
+      </time>
+      
+      
+      
+      
+      
+      
+      <span class="post-cats">
+        <i class="fas fa-folder"></i>
+        
+        <a href="/categories/%E9%98%B4%E6%B9%BF/" class="meta-item">阴湿</a>
+        
+      </span>
+      
+      
+      
+      <span class="meta-item post-word-count">
+        <i class="fas fa-file-word"></i> 4363 字
+      </span>
+      
+      
+      <span class="meta-item post-view-count" data-page-url="/posts/hello-world.html/">
+        <i class="fas fa-eye"></i> <span class="view-count-number">--</span> 次浏览
+      </span>
+      
+      
+      <span class="meta-item post-reading-time" data-word-count="4363">
+        <i class="fas fa-clock"></i> <span class="reading-time-number">--</span> 分钟
+      </span>
+    </div>
+  </header>
+  
+  
+  <div class="post-cover">
+    <img class="post-bg" src="/img/index.png" alt="cover" onerror="this.src='/img/404.jpg'">
+  </div>
+  
+  
+  
+  <div class="post-content">
+    
+  <div id="TableOfContents" style="display: none;">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#假民主特色的官僚主义甚嚣尘上">假民主特色的官僚主义甚嚣尘上</a></li>
+    <li><a href="#形成圈内自治无视学校规定">形成圈内自治，无视学校规定</a></li>
+    <li><a href="#消失的经费校友会变成众筹现场">消失的经费？校友会变成众筹现场</a></li>
+    <li><a href="#无心建设本科生培养体系人文关怀极其落后">无心建设本科生培养体系，人文关怀极其落后</a></li>
+    <li><a href="#极端女权主义渗透师生小团体对立严重">极端女权主义渗透师生，小团体对立严重</a></li>
+    <li><a href="#学术氛围极差内卷之风吹遍所有人">学术氛围极差，内卷之风吹遍所有人</a></li>
+    <li><a href="#教授能力灌水连加减法都算不明白的一作论文学术权威性扫地">教授能力灌水，连加减法都算不明白的一作论文，学术权威性扫地</a></li>
+    <li><a href="#npd-教授借历史审判本科生在其他学院面前出丑">NPD 教授借“历史”审判本科生——在其他学院面前出丑</a></li>
+    <li><a href="#研究生培养向水硕方向发展双非生进入管理体系后作威作福">研究生培养向“水硕”方向发展，双非生进入管理体系后作威作福</a></li>
+  </ul>
+</nav>
+  </div>
+    
+    
+    <p>这篇文章，是在我离开SPH以后的深刻批判。我选择离开SPH，不仅仅只是出于我对计算机、网络安全、具身智能安全的发自内心的原生热爱，其实很大一部分是无法忍受SPH恶心的学风与管理建设。</p>
+<p>免责声明：本文的展开将从一个学习了一学年的普通大一本科生、对SPH毫无喜爱的普通学生的视角出发。本文不应作为对任何事物全面概述，也不应该作为您在做出任何重大决定的参考资料。本文的撰写极具情绪化，个人中心化，所有内容只是对本人情绪的一种艺术化表达。</p>
+<p>为了保证心流化表达，我不会在此类的文章使用大量的格式，因此它们阅读起来有些困难，请您理解。</p>
+<p>同时，我附一个提纲挈领的省流：在SPH的一年，不仅浪费了我的青春，还让我被直接狠狠恶心得要死。</p>
+<p>为了避嫌，我移除了一些敏感内容。</p>
+<h2 id="假民主特色的官僚主义甚嚣尘上">假民主特色的官僚主义甚嚣尘上</h2>
+<p>SPH的管理是极其僵化的。其中最严重的是学生管理工作僵化，官僚主义严重，层层加码，执行效率低下，长久以来忽视学生真实诉求，同时借SPH人数少的情况下，利用人情化社会便利，形成类似“白色恐怖”的压抑管理氛围，将各种人情世故和学生重大的评分挂钩。如果说实行专制是被一个人强奸，那么打着民主的旗号实行专制就是将你身上的孔全部塞满的强奸。</p>
+<p>以志愿时补录工作为例，同样是参加校内的，但由其他承办的、面向全校的志愿活动，参与量倍增，这些志愿活动往往能在1-2个月内完成所有补录工作。补录需要的手续通常是：现场签字+添加企业微信群聊，志愿时现场核销，保障工作现场完结。</p>
+<p>SPH特色是：首先你需要提前急头白脸地盯好手机消息，好不容易填上了问卷，等待负责人通过企业微信给你发送微信群聊二维码（简直就是弱智，脱裤子放屁的做法）。加进去以后，等待负责人开始安排抽象任务。志愿者保障工作无，报销是事后报销。路费必须在滴滴上打最低价位的车，随后你必须开具：支付软件截图、增值税发票、滴滴软件开具的行程证明。起点和终点只能定在南校和志愿地点，你必须在限定的时间及时提交。接着你需要等待接近一个学期时期，最后报销的钱进入负责人口袋，再由负责人通过微信转账给你。钱的问题解决了，志愿时呢？你需要等到本学期结束，星级志愿者评定结束以后，负责人要求你填报补录审核资料，通常是一些制作极其简陋Word文档（公卫人均电脑盲，狗屁不通还爱做一些神经病一样的文档，用极其抽象的方法实现勉强看得过去的格式），你需要明确策划案以及报上去的志愿时，随后系统终于立项，但卡在审核中的状态，你又等到下学期开学几周了，有些审核通过了，有些审核失效被删除了。此时群聊早已解散，负责人也已跑路，申诉无门。</p>
+<p>一个几百人参与的活动，和一个不到10人的志愿，这样的办事效率对比，高下立判。</p>
+<p>SPH的行政管理组织是数一数二的庞大，一个年级甚至出现半数以上的学生都至少拥有一个管理职位，然而它们却连个志愿时登记工作都做不好。</p>
+<h2 id="形成圈内自治无视学校规定">形成圈内自治，无视学校规定</h2>
+<p>SPH在官僚主义作风的辅助下，已经形成了圈内自治的扭曲生态。学校在某种程度上已经失去了对SPH的实际控制。由此可以想象，其管理层面对学校时，是如何阳奉阴违的。</p>
+<ul>
+<li>
+<p>和学校体育部对着干：体育长跑月解释权被强制移交给自己，甚至声称这样做了很多年了</p>
+<p>以2026年春季长跑月为例，学校体育部官方微信账号发布了文件执行细则，对于线上打卡，形式应该是：由负责人一次性收齐学生在8-12周跑步的有效截图，在第13周周六前上传系统。SPH擅自改为9-11周每日在有效时间提交当日截图。不允许补交。我在某日跑完步后忘记提交，在第二天后补上传截图，被记为无效提交。我在群内申诉，它们丝毫不顾学校规章制度的权威，甚至摆出“你参加了就是默认同意了”这样极端专制封建的语句，把学生的意见变成“小作文”，它们的回复也完全不具有任何逻辑，对于没有逻辑的回复，甚至还堂而皇之地分点，神人这个范畴已经不能容纳它们了。这些极其刻薄的mean人和我在群内产生了如下的聊天记录：</p>
+<pre tabindex="0"><code>刃律：学校体育部官方文件要求的是8-12周为可以提交的有效时间，现在是第11周，体育部要求在第13周周六前提交登记表。学生的提交形式分为线上提交和线下团跑，线上提交的形式是一次性提交所有截图，为什么我们学院执行差异这么大呢？请问提前结束是因为体育部更改了时间还是？能否提供体育部的官方通知？
+
+SPH智能人：体育章的加分上限为10个，我们规定的时间接近二十天，绝对是足够你们运动十天，而且学校体育部的意思是每个学院要在这四周内完成这个长跑月，而不是我们学院必须举办四周的长跑月
+
+SPH智能人：至于补交纪录，我们每次长跑月开始的通知就提醒过了，不能补交纪录
+
+SPH智能人：另外，我们安排这个时间段，还有考虑到天气原因，如果在举办我院长跑月期间很多天下大雨，那么我们可以延长长跑月，保证有需求的同学能在12周之前拿到足够的体育章
+
+刃律：首先，SPH作为实施单位，按照文件意思，实施单位的职责是向体育部系统提交学生在8-12周合规的跑步记录，【8-12周】前用词为【指定】，即学校要求规定在8-12周，跟贵学院如何组织毫无关系，请不要曲解文件意思（文件原文：实施单位统计参与活动学生在指定期间（第8-12周）的有效长跑次数后，于第13周周六（5月30日）前将经审核的本单位长跑月活动资料《电子积分登记表》……）；其次，补交这个说法本身不成立，体育部要求实施单位使用两种组织方式，我院采用线上打卡，则体育部给到的形式是一次性发送给负责人，现在这种形式凭空出现，得不到任何规章制度和相关文件的站脚，权威性不足（文件原文：将所有符合要求的记录截图一次性发送给本院活动负责人）；最后，如果要延长长跑月，请给出具体的提交方式，而不是这种含糊不清的措辞和口头承诺。最后声明的是，该文件是学校的文件，发布于体育官方账号，学校文件理应对全校所有学院具有相同的约束力，本文件没有赋予学院以自由形式执行的权力，仅声明了学院可根据自身条件可选择参与或不参与。请您不要抛开学校规定谈贵学院的规定。如果按照您的措辞，请问现在SPH执行学校布置的相关任务可以在无授权的情况下任意凌驾于学校规定的形式之上吗？
+
+SPH智能人：1.如果你有意见，你就在活动开始的时候提出来，而不是在活动结束之后再在这里发小作文，现在活动已经结束了，不可能为你一个人改变活动规则。
+2.如果你还是有意见，你可以去找公卫的领导或者是体育部来表达你的意见，要不然对其他同学很不公平。只要老师说同意，我们一定会给你加上。
+3.另外你的意见，如果其他同学也有这种想法，我们以后举办长跑约会参考的。
+
+刃律：这就是你们学生会管理层解决问题的态度吗？把群众意见打成所谓的“小作文”以此来尝试孤立我的意见对吗？其他同学不发声难道就代表他们很满意现在你们的作为是吗？这就是SPH管理制度的设计理念对吗？不接受质疑，只接受一言堂？如果在这个群里诉求不能得到解决还需要通过其他途径，那你们组建这个群聊的意义是什么？整个学校有哪几个学院像你们这样圈内自治搞的？
+
+来凑热闹狡辩的SPH智能人：我补充一下学院凌驾于学校之上你的说法不太对，首先学校历年来只发布长跑月公告执行者是学院，相当于学院经学校授权自己在合情合理范围内可以置顶方面本院长跑月规则，例如往年中山医对配速提交就有要求，因此我们接收学校通知制定长跑月章程发表规则本身是合情合理的，你自己一开始了解了规则并无异议，那我们就默认你可以遵守规则，但现在你的做法违反了规则，我们对你的补交不予采纳，我觉得没什么问题
+
+刃律：什么历年规则？今年没发通知还是怎么了？
+
+SPH智能人：首先我们没有逼着你参加这个活动，这个活动也不是说要保证每个学院的同学都拿到10个体育章，还有其他非常多的活动，可以给大家拿到体育章，如果你一开始就对这个规则有意见你可以不参加，或者你可以提出来和我们商量，但你既然选择了参加，就说明你对我们刚开始的规则没有意见，并且这个活动也已经结束
+
+SPH智能人：我记得去年一开始也有同学提出时间太短了，于是我们有相应的调整，但是今年给了接近20天的时间，也没有同学提出异议，所以我们就按我们的规定开展活动了呀
+
+SPH智能人：现在活动已经结束了，规则已经无法改变
+</code></pre><p>所以我不再回复了，它们就跟人机一样，好像没有理解我的话一样。</p>
+<p>建议大家自行评价吧。</p>
+</li>
+<li>
+<p>和学校教务部对着干：违规设置额外考勤，自作多情转移教师职责，并隐性声称对学生学分具有生杀大权</p>
+</li>
+<li>
+<p>和学校大学总务部对着干：要求指定人检查宿舍违规，结果将责任转嫁给兼职辅导员和班委，让其他学生随意进入他人宿舍</p>
+</li>
+</ul>
+<p>如果可以，我希望SPH尽快改为SPH University。</p>
+<h2 id="消失的经费校友会变成众筹现场">消失的经费？校友会变成众筹现场</h2>
+<p>学校作为国家教育部直属高校，每年将从国家获得数不胜数的经费。以我曾经参加但已离开的大创项目为例：</p>
+<p>然而，作为全国建设所谓排名领先前五的组织，它怎么可能会缺少经费？在广州校区北校园，SPH拥有两栋大楼用于行政办公和教学科研，它竟然在多次校友见面场合道德绑架，捐款活动成为占比极大的宣讲部分。我实在难以想象这其中到底发生了什么。</p>
+<h2 id="无心建设本科生培养体系人文关怀极其落后">无心建设本科生培养体系，人文关怀极其落后</h2>
+<p>对学生人文关怀的严重缺席，导致学生活动经费批不下来，批下来的优质活动往往也是因为有领导参与，但经常沦为领导拍照炫场的政绩。</p>
+<p>虚假的人文关怀有时比没有关怀更加伤人。</p>
+<h2 id="极端女权主义渗透师生小团体对立严重">极端女权主义渗透师生，小团体对立严重</h2>
+<h2 id="学术氛围极差内卷之风吹遍所有人">学术氛围极差，内卷之风吹遍所有人</h2>
+<h2 id="教授能力灌水连加减法都算不明白的一作论文学术权威性扫地">教授能力灌水，连加减法都算不明白的一作论文，学术权威性扫地</h2>
+<p>以知名却不想知名的教授Y H简历上排序靠前的两篇一作论文为例，它的论文存在以下 9 大问题：</p>
+<ul>
+<li>公然违背“一个中国”的原则，论文大标题用“mainland China”这种早已被中国政府停用的对中国大陆的称呼；</li>
+<li>加减乘除不会算；</li>
+<li>占比极低的因子纳入线性回归；</li>
+<li>比大小不会比；</li>
+<li>对同一个研究对象特征的描述前后不一致；</li>
+<li>在同一篇论文里自己驳倒自己的观点，睁着眼睛说瞎话；</li>
+<li>对同一个统计量，前后采用不一致的分类标准，依旧得出结论；</li>
+<li>论文的数学公式格式检查大量疏漏；</li>
+<li>支撑关键结论的数据呈现出等差数列。</li>
+</ul>
+<p>我还没有进入学术圈，我不知道那个可能崇高也可能肮脏的圈子，是怎样定义学术不端的。请问这样的论文，连基本的数理逻辑都搞不明白，是怎样堂而皇之地到处发表，并以此作为它的成就的？这位教授每天上课的开场白是：“我好不容易从xx地方赶回广州跟大家上课，我待会儿又有飞机/高铁去往xx，人家都找我上课。”Y H是不满足自己在学校的职业资源分配吗？如果它说的是真的，那我真会觉得很不可思议。它们是否知道这位教授写的论文，加减法都没搞清楚？而且据我上次知道的，全国可飞的职业，好像不是教授教师之类的吧？</p>
+<p>由于我不想费力管理这里的图片引用，我只是想写一篇发泄情绪的文章，所以我不放指证图片了。如果你想了解更多，可转到中国知网和SPH官网查找。</p>
+<p>当我连续拜读两篇论文，发现数据错误随处可见，我就更无心调研它的结论得出是否合理正确了。数理逻辑都不清晰的人，你指望它能得出什么严谨的结论？</p>
+<p>同时一个可笑的事实必须声明，以上问题仅需利用AI，无需附带Skills，无需联网搜索，仅需简单的提示词，以及花费30k Tokens（90%的缓存命中，DeepSeek神中神）即可被检查出来。</p>
+<h2 id="npd-教授借历史审判本科生在其他学院面前出丑">NPD 教授借“历史”审判本科生——在其他学院面前出丑</h2>
+<h2 id="研究生培养向水硕方向发展双非生进入管理体系后作威作福">研究生培养向“水硕”方向发展，双非生进入管理体系后作威作福</h2>
+
+  </div>
+  
+  
+  
+  <div class="post-tags-simple">
+    <div class="tags-divider-top"></div>
+    <div class="tags-simple-list">
+      
+      <a href="/tags/%E9%98%B4%E6%B9%BF/" class="tag-simple">阴湿</a>
+      
+    </div>
+    <div class="tags-divider-bottom"></div>
+  </div>
+  
+  
+  
+  <div class="post-actions-container">
+    
+    
+    <div class="post-action-item post-like">
+      <button class="action-button like-button" id="likeButton" data-post-url="/posts/hello-world.html/">
+        <i class="fas fa-heart"></i>
+        <span class="action-text">点赞</span>
+        <span class="action-count" id="likeCount">0</span>
+      </button>
+    </div>
+    
+    
+    
+    
+    <div class="post-action-item post-reward">
+      <button class="action-button reward-button" id="rewardButton">
+        <i class="fas fa-coffee"></i>
+        <span class="action-text">☕ 感谢支持</span>
+      </button>
+      <div class="reward-panel" id="rewardPanel">
+        <div class="reward-title">如果觉得文章有帮助，可以请我喝杯杯咖啡~</div>
+        <div class="reward-qrcodes">
+          
+          <div class="reward-qrcode">
+            <img src="/img/weixin.webp" alt="微信支付">
+            <p>微信支付</p>
+          </div>
+          
+          
+          <div class="reward-qrcode">
+            <img src="/img/zhifubao.jpg" alt="支付宝">
+            <p>支付宝</p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+    <div class="post-action-item post-share">
+      <button class="action-button share-button" id="shareButton">
+        <i class="fas fa-share-alt"></i>
+        <span class="action-text">分享</span>
+      </button>
+      <div class="share-panel" id="sharePanel">
+        <div class="share-platforms">
+          
+          <a href="javascript:void(0);" 
+             class="share-platform-item" 
+             data-platform="微信" 
+             data-url=""
+             style="--platform-color: #07C160;">
+            <i class="fab fa-weixin"></i>
+            <span>微信</span>
+          </a>
+          
+          <a href="javascript:void(0);" 
+             class="share-platform-item" 
+             data-platform="QQ" 
+             data-url="https://connect.qq.com/widget/shareqq/index.html?url=%7burl%7d&amp;title=%7btitle%7d&amp;summary=%7bdescription%7d"
+             style="--platform-color: #12B7F5;">
+            <i class="fab fa-qq"></i>
+            <span>QQ</span>
+          </a>
+          
+          <a href="javascript:void(0);" 
+             class="share-platform-item" 
+             data-platform="复制链接" 
+             data-url=""
+             style="--platform-color: #666666;">
+            <i class="fas fa-link"></i>
+            <span>复制链接</span>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="post-copyright">
+    <p><i class="fas fa-info-circle"></i> 文章作者：<strong><a href="https://RenAhsAcme.github.io/" rel="noopener noreferrer">刃律RenAhsAcme</a></strong></p>
+    <p><i class="fas fa-link"></i> 文章链接：
+      <a href="/posts/hello-world.html/">https://RenAhsAcme.github.io/posts/hello-world.html/</a>
+    </p>
+    
+    
+    <p><i class="fas fa-copyright"></i> 版权声明: 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <strong><a href="https://RenAhsAcme.github.io/" rel="noopener noreferrer">刃律RenAhsAcme</a></strong></p>
+  </div>
+  
+  <nav class="post-pager">
+    <a class="pager-prev" href="/posts/hello-world.html/">
+      <span>← 上一篇</span><br>你好，世界：前面的区域，可以开始探索了。
+    </a>
+    
+  </nav>
+    
+ </article>
+
+    </main>
+
+    
+      <aside class="site-aside-right aside-unified">
+        
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="aside-card toc-card"
+  
+>
+  
+  
+  <div class="toc-card-content"
+    
+  >
+    <h3 class="aside-title"><i class="fas fa-list"></i> 目录</h3>
+    <div class="toc-content">
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#假民主特色的官僚主义甚嚣尘上">假民主特色的官僚主义甚嚣尘上</a></li>
+    <li><a href="#形成圈内自治无视学校规定">形成圈内自治，无视学校规定</a></li>
+    <li><a href="#消失的经费校友会变成众筹现场">消失的经费？校友会变成众筹现场</a></li>
+    <li><a href="#无心建设本科生培养体系人文关怀极其落后">无心建设本科生培养体系，人文关怀极其落后</a></li>
+    <li><a href="#极端女权主义渗透师生小团体对立严重">极端女权主义渗透师生，小团体对立严重</a></li>
+    <li><a href="#学术氛围极差内卷之风吹遍所有人">学术氛围极差，内卷之风吹遍所有人</a></li>
+    <li><a href="#教授能力灌水连加减法都算不明白的一作论文学术权威性扫地">教授能力灌水，连加减法都算不明白的一作论文，学术权威性扫地</a></li>
+    <li><a href="#npd-教授借历史审判本科生在其他学院面前出丑">NPD 教授借“历史”审判本科生——在其他学院面前出丑</a></li>
+    <li><a href="#研究生培养向水硕方向发展双非生进入管理体系后作威作福">研究生培养向“水硕”方向发展，双非生进入管理体系后作威作福</a></li>
+  </ul>
+</nav>
+        
+    </div>
+  </div>
+</section>
+
+          
+        
+          
+            
+          
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="aside-card social-media-card"
+  
+>
+  
+  
+  <div class="social-media-card-content"
+    
+  >
+    <h3 class="aside-title">
+      <i class="fas fa-share-alt"></i> 关注我们
+    </h3>
+    
+    
+    <div class="social-media-links">
+      
+        <a href="https://github.com/RenAhsAcme" target="_blank" rel="noopener" class="social-link" 
+           title="GitHub" style="background: #333333;">
+          <i class="fab fa-github"></i>
+          <span class="social-name">GitHub</span>
+        </a>
+      
+        <a href="/index.xml" target="_blank" rel="noopener" class="social-link" 
+           title="RSS" style="background: #333333;">
+          <i class="fas fa-rss"></i>
+          <span class="social-name">RSS</span>
+        </a>
+      
+    </div>
+    
+    
+    
+      
+    
+  </div>
+</section>
+
+          
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="aside-card hitokoto-card"
+  
+>
+  
+  
+  <div class="hitokoto-card-content"
+    
+  >
+    <h3 class="aside-title">
+      <i class="fas fa-quote-left"></i> 一言
+    </h3>
+    <div class="hitokoto-content">
+      <div class="hitokoto-sentence" id="hitokoto-sentence">
+        <span class="hitokoto-loading">正在加载一言...</span>
+      </div>
+      
+      <div class="hitokoto-from" id="hitokoto-from" style="display: none;"></div>
+      
+    </div>
+  </div>
+</section>
+
+
+<script>
+  window.hitokotoConfig = {
+    enabled:  true ,
+    apiType: 'jinrishici',
+    
+    showFrom:  true 
+  };
+</script>
+
+
+
+          
+        
+          
+            
+
+
+          
+        
+          
+            
+
+
+          
+        
+          
+            
+
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+<section class="aside-card recent-posts-card"
+  
+>
+  
+  
+  <div class="recent-posts-card-content"
+    
+  >
+    <h3 class="aside-title"><i class="fas fa-clock"></i> 最新文章</h3>
+    <div class="aside-recent">
+        
+            
+            
+            
+            <a class="recent-item" href="/posts/hello-world.html/">
+                <div class="recent-thumb">
+                    <img src="/img/index.png" 
+                         alt="我对 SPH 的批判" 
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='\/img\/404.jpg'">
+                </div>
+                <div class="recent-meta">
+                    <div class="recent-title">我对 SPH 的批判</div>
+                    <div class="recent-date">2026-05-20</div>
+                </div>
+            </a>
+        
+            
+            
+            
+            <a class="recent-item" href="/posts/hello-world.html/">
+                <div class="recent-thumb">
+                    <img src="/img/index.png" 
+                         alt="你好，世界：前面的区域，可以开始探索了。" 
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='\/img\/404.jpg'">
+                </div>
+                <div class="recent-meta">
+                    <div class="recent-title">你好，世界：前面的区域，可以开始探索了。</div>
+                    <div class="recent-date">2026-05-18</div>
+                </div>
+            </a>
+        
+    </div>
+  </div>
+</section>
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+
+
+
+
+
+          
+        
+      </aside>
+    
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-line">
+      <span>
+        © 
+        
+        
+        
+        
+        
+        
+          
+          
+        
+        
+        
+        
+          2026
+        
+        
+        刃律RenAhsAcme
+      </span>
+    </div>
+    
+    
+    
+    <div class="footer-running-time" data-start-date="2026-05-18">
+      <span class="running-time-prefix">本站已运行</span>
+      <span class="running-time-value">加载中...</span>
+    </div>
+    
+  
+    
+  
+    
+    <div class="footer-custom">
+          <div class="footer-links">
+      <a href="/about">关于</a>
+      <a href="/sitemap.xml">网站地图</a>
+    </div>
+  
+    </div>
+    
+  </footer>
+  
+
+
+
+
+
+<div class="floating-buttons floating-buttons--right">
+  
+    <button id="back-to-top" class="floating-btn" aria-label="返回顶部" title="返回顶部">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+  
+
+  
+  <button id="reading-progress" class="floating-btn" aria-label="阅读进度" title="阅读进度">
+    <span class="progress-number">0</span>
+  </button>
+
+  
+  <button id="fab-settings" class="floating-btn" aria-label="更多操作" title="更多操作">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="3"></circle>
+      <path d="M12 1v6m0 6v6m-6-6h6m6 0h6"></path>
+      <path d="M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24m0-12.73l-4.24 4.24M9.17 14.83l-4.24 4.24"></path>
+    </svg>
+  </button>
+  
+  
+    <button id="theme-toggle" class="floating-btn fab-extra" aria-label="切换主题" title="切换主题">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  
+
+  
+    <button id="sidebar-toggle" class="floating-btn fab-extra" aria-label="切换侧栏" title="切换侧栏">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="9" y1="3" x2="9" y2="21"></line>
+      </svg>
+    </button>
+  
+
+  
+  <button id="immersive-mode" class="floating-btn fab-extra" aria-label="沉浸阅读" title="沉浸阅读模式">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+    </svg>
+  </button>
+
+  
+  <button id="danmaku-mode" class="floating-btn fab-extra" aria-label="评论弹幕" title="评论弹幕">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+      <polyline points="17 2 12 7 7 2"></polyline>
+    </svg>
+  </button>
+</div>
+
+
+<div id="danmaku-container" class="danmaku-container" style="display: none;"></div>
+
+  <div id="search-modal" class="search-modal" aria-hidden="true">
+  <div class="search-overlay"></div>
+  <div class="search-dialog" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <button class="search-close" aria-label="关闭"><i class="fas fa-times"></i></button>
+    <h2 id="search-title">站内搜索</h2>
+    <form action="/search" method="get" class="search-form">
+      <input type="text" name="q" placeholder="输入关键词..." class="search-input" id="search-input" autocomplete="off" />
+      <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+    </form>
+    <div id="search-result-count" class="search-count"></div>
+    <ul id="search-results" class="search-results"></ul>
+  </div>
+  <style>
+    .nav-search-trigger{ background:none;border:none;color:var(--fg);font-size:1rem;cursor:pointer;margin-left:1rem }
+    .search-modal{ position:fixed;inset:0;display:none;z-index:4000 }
+    .search-modal.open{ display:block }
+    .search-overlay{ position:absolute;inset:0;background:rgba(0,0,0,.4) }
+    .search-dialog{ position:relative;max-width:800px;margin:10vh auto;background:var(--bg);border:1px solid color-mix(in srgb, var(--fg) 15%, transparent);border-radius:12px;padding:1rem 1.25rem }
+    .search-close{ position:absolute;right:.75rem;top:.75rem;background:none;border:none;color:var(--fg);cursor:pointer }
+    .search-results{ list-style:none;padding:0;margin:1rem 0;display:grid;gap:.6rem }
+    .search-item{ padding:.6rem .5rem;border-bottom:1px dashed color-mix(in srgb, var(--fg) 12%, transparent);border-radius:6px;transition:transform .2s, box-shadow .2s, background .2s }
+    .search-item:hover{ transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08);background:color-mix(in srgb, var(--accent) 4%, transparent) }
+    .search-title{ color:var(--fg);text-decoration:none;font-weight:600 }
+    .search-desc{ margin:.25rem 0 0;opacity:.8 }
+  </style>
+</div>
+
+
+  
+
+
+
+  
+  
+  
+  
+  
+    
+  
+    
+    
+    
+    
+      
+      
+      
+      
+      
+      
+        
+        
+        
+        
+          
+        
+        
+        
+        
+      
+    
+    
+    
+<div id="music-player-float">
+  <div class="music-player-float-controls">
+    <button class="music-player-float-btn minimize-btn" aria-label="缩小" title="缩小">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+    </button>
+    <button class="music-player-float-btn close-btn" aria-label="关闭" title="关闭">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <div class="music-player-float-drag-handle" title="拖拽移动"></div>
+  <div class="music-player-float-content">
+    
+    
+    
+      
+        <meting-js
+          server="tencent"
+          type="playlist"
+          id="9714621633"
+          
+          autoplay="true"
+          
+          loop="all"
+          order="list"
+          volume="0.7"
+          list-folded="true"
+          list-max-height="340px"
+          
+          
+        ></meting-js>
+      
+    
+    
+  </div>
+</div>
+<script>
+  window.musicFloatPlayerConfig = {
+    enabled:  true ,
+    itemsCount: 1,
+    dataSource: 'aside.music.items(fallback)'
+  };
+</script>
+    
+
+
+
+  
+  
+  
+  <script>
+    window.devToolsProtectionConfig = {
+      enabled:  true ,
+      disableRightClick:  true ,
+      disableTextSelection:  true ,
+      detectDevTools:  true ,
+      devToolsThreshold:  160 ,
+      disableConsole:  true ,
+      disableDebugger:  true ,
+      preventIframe:  true ,
+      onDevToolsOpen: "\"close\"",
+      redirectUrl: "\"/\""
+    };
+  </script>
+  
+    <script src="/js/_devtools-protection.min.ead7b6918d17b502a51d0636c09c67e0398d7e388a48e277f7ef82716de5055f.js"></script>
+  
+  
+  
+  
+    <script defer src="/js/main.min.1ceca71fd8efea1f2b16b5499439d286b47caaf4398a78f61a9324339fe58ac3.js"></script>
+  
+  
+  
+    <script defer src="/js/_home-big-image.min.8fe00eb0fe71c3ced562acea9cd22c455998ae29664e9c7a4b5d737f8bc445fd.js"></script>
+  
+  
+  
+    <script defer src="/js/_background.min.fbeeaabc69d9bdaec0ac8e608817af4d58191f93ba85ec56f9e2d4c66300a95d.js"></script>
+  
+  
+  
+    <script defer src="/js/_post-views.min.2a857ba1679d58d281337a770e83234b6c1c193bbcca172a15c8bc13c5753b81.js"></script>
+  
+  
+  
+    <script defer src="/js/_post-reading-time.min.fad0853909ef5caeb2547aaf445dcfd101693e1987fb7376d16245b2c6348880.js"></script>
+  
+  
+  
+  
+  
+  
+  
+    <script defer src="/js/_simple-pjax.min.8b53c3f3059c7422119c3232f1542a4b462c3ecf8e0c4e754afff6a8abf417ba.js"></script>
+  
+  
+  
+  
+  
+    <script defer src="/js/_friends-circle.min.b8b248c8e729eae9452d51cb5ecc5e2898cccaf780a476d59f70cb370e9af901.js"></script>
+  
+  
+  
+  
+  
+  
+  <script>
+        
+        if (!window.siteConfig) {
+          window.siteConfig = {};
+        }
+        Object.assign(window.siteConfig, {
+          siteBackgroundEnabled: 'true',
+          siteBackgroundImage: '\/img\/haibian.jpg',
+          siteBackgroundBlur: '10',
+          siteBackgroundBrightness: '70',
+          siteBackgroundOpacity: '70',
+          
+          mobileTocPopupMode: 'sidebar',
+          effectMode: 'glass',
+          solidColor: '#4fc3f7',
+          
+          homeBigImageEnabled: 'false',
+          homeBigImageMode: 'mode2',
+          homeBigImageTitle: '跨越时空的思念',
+          homeBigImageSubtitle: '你看到了吗？一切已经迎来了黎明。',
+          homeBigImageMode1BackgroundImage: '\/img\/index.png',
+          homeBigImageMode1ArrowAnimation: 'false',
+          homeBigImageMode1ScrollSpeed: '500',
+          homeBigImageMode1CardAnimation: 'true',
+          homeBigImageMode1CardAnimationSpeed: 'normal',
+          homeBigImageMode2FullScreen: 'true',
+          homeBigImageMode2OverlayOpacity: '0.5',
+          homeBigImageMode2CustomBackgroundImage: '\/img\/index.png',
+          
+          typewriterEnable: 'true',
+          typewriterSpeed: '100',
+          typewriterDelay: '1000',
+          typewriterCursor: 'true',
+          typewriterLoop: 'false',
+          
+          pjaxEnabled: 'true',
+          
+          artalkServer: 'https:\/\/artalk.example.com',
+          artalkSite: 'demo-site',
+          
+          umamiApiUrl: '',
+          umamiUseForPostViews: true,
+          
+          particleEffectEnable: 'false',
+          particleEffectCount: '150',
+          particleEffectColor: '',
+          particleEffectLineColor: '',
+          particleEffectLineDistance: '150',
+          particleEffectSpeed: '0.5',
+          particleEffectRadius: '1.5',
+          particleEffectInteractive: 'true',
+          particleEffectZIndex: '0',
+          umamiWebsiteId: '',
+          
+          stickyHeader:  true ,
+          
+          asideWideMode: 'false',
+          
+          fontEnable:  false ,
+          fontType: 'local',
+          fontOnlineUrl: '',
+          fontFamily: '',
+          fontLocalName: '字魂白鸽天行体',
+          fontLocalPath: '\/fonts\/字魂白鸽天行体.ttf',
+          fontLocalFormat: 'ttf',
+          
+          topAnnouncement: {
+            enable: false,
+            mode: 'custom',
+            height: 40,
+            shuoshuo: {
+              apiUrl: '',
+              count: 3,
+              interval: 5000,
+              transitionDuration: 500,
+              showAvatar: true,
+              showTime: true,
+              cacheDuration: 1800000,
+              clickable: true,
+              shuoshuoPageUrl: '/shuoshuo/'
+            }
+          },
+          
+          linkCard: {
+            enable:  true ,
+            cardMode: 'external',
+            openInNewTab:  true ,
+            showArticleInfo:  true ,
+            showArticleTitle:  true ,
+            showArticleDate:  true ,
+            showArticleSummary:  true ,
+            redirectPage:  true ,
+            replaceWhitelist: "[]",
+            pageWhitelist: "[]",
+            elementWhitelist: "[]",
+            redirectWhitelist: "[]",
+            redirect: {
+              pagePath: '\/go\/',
+              countdown:  3 ,
+              showCountdown:  true ,
+              showButton:  true ,
+              safeMessage: '您即将离开我的个人网站，请注意安全。'
+            }
+          }
+        });
+        
+        
+        window.setAsideWidth = function() {
+          if (!window.siteConfig) return;
+          
+          const mode = window.siteConfig.asideWideMode;
+          let asideWidth = '260px'; 
+          
+          
+          const modeStr = String(mode).replace(/^["']|["']$/g, '').toLowerCase();
+          
+          
+          if (mode === true || modeStr === 'true' || modeStr === 'wide') {
+            asideWidth = '415px'; 
+          } else if (modeStr === 'medium') {
+            asideWidth = '332px'; 
+          } else {
+            
+            asideWidth = '260px';
+          }
+          
+          document.documentElement.style.setProperty('--aside-width', asideWidth);
+        };
+        
+        
+        window.setAsideWidth();
+        
+        
+        window.setFontFamily = function() {
+          if (!window.siteConfig) {
+            console.warn('setFontFamily: siteConfig not found');
+            return;
+          }
+          
+          
+          const fontEnable = window.siteConfig.fontEnable === true || 
+                            window.siteConfig.fontEnable === 'true' || 
+                            String(window.siteConfig.fontEnable).toLowerCase() === 'true';
+          
+          if (!fontEnable) {
+            
+            document.documentElement.style.setProperty('--font-family', '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif');
+            return;
+          }
+          
+          const fontType = String(window.siteConfig.fontType || 'online').toLowerCase();
+          let fontFamily = '';
+          
+          if (fontType === 'local') {
+            
+            const localName = String(window.siteConfig.fontLocalName || '').trim();
+            if (localName) {
+              
+              const cleanName = localName.replace(/^["']|["']$/g, '');
+              fontFamily = `'${cleanName}', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif`;
+            }
+          } else {
+            
+            const onlineFontFamily = String(window.siteConfig.fontFamily || '').trim();
+            if (onlineFontFamily) {
+              
+              const cleanFamily = onlineFontFamily.replace(/^["']|["']$/g, '');
+              fontFamily = `${cleanFamily}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif`;
+            }
+          }
+          
+          if (fontFamily) {
+            document.documentElement.style.setProperty('--font-family', fontFamily);
+            
+            document.body.style.fontFamily = fontFamily;
+          }
+        };
+        
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', window.setFontFamily);
+        } else {
+          
+          window.setFontFamily();
+        }
+  </script>
+  
+  
+  
+  
+  
+  
+  
+    
+      <script src="/js/_link-card.min.5fb686b5c2fa427aa5ff80ddc2a978edeadc5f02269c802fb22c00c67af7f48b.js"></script>
+    
+  
+</body>
+</html>
