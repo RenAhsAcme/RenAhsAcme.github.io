@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>刃律RenAhsAcme</title>
-    <link>https://RenAhsAcme.github.io/posts/</link>
-    <description>Recent content on 刃律RenAhsAcme</description>
+    <title>网络空间安全 on 刃律RenAhsAcme</title>
+    <link>https://RenAhsAcme.github.io/categories/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8/</link>
+    <description>Recent content in 网络空间安全 on 刃律RenAhsAcme</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2026 刃律RenAhsAcme</copyright>
     <lastBuildDate>Thu, 11 Jun 2026 20:39:00 +0800</lastBuildDate>
-    <atom:link href="https://RenAhsAcme.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://RenAhsAcme.github.io/categories/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>你被骗了。</title>
       <link>https://RenAhsAcme.github.io/posts/never-gonna-give-you-up.html/</link>
       <pubDate>Thu, 11 Jun 2026 20:39:00 +0800</pubDate>
       <guid>https://RenAhsAcme.github.io/posts/never-gonna-give-you-up.html/</guid>
       <description>你被骗了。</description>
-    </item>
-    <item>
-      <title>你好，世界：前面的区域，可以开始探索了。</title>
-      <link>https://RenAhsAcme.github.io/posts/hello-world.html/</link>
-      <pubDate>Mon, 18 May 2026 21:46:00 +0800</pubDate>
-      <guid>https://RenAhsAcme.github.io/posts/hello-world.html/</guid>
-      <description>欢迎到访。</description>
     </item>
   </channel>
 </rss>
