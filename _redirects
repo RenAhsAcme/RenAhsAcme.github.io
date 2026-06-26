@@ -1,0 +1,5 @@
+# Prefer an edge/server-side permanent redirect for hosts that support
+# Netlify/Cloudflare Pages-style redirects. This lets clients receive the
+# destination from the HTTP response headers without downloading and parsing
+# the HTML fallback in index.html.
+/	https://renahsacme.cc/	301
