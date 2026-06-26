@@ -1,0 +1,7 @@
+# Server-side permanent redirect for Netlify-compatible deployments.
+# GitHub Pages ignores this file, so index.html remains as the fallback.
+[[redirects]]
+  from = "/"
+  to = "https://renahsacme.cc/"
+  status = 301
+  force = true
