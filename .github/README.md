@@ -1,7 +1,10 @@
-# Personal_Template
-该仓库是个人仓库的模板，用于在大多数情况下快速生成所有必要文件。这是用于在 GitHub 仓库首页显示的 README 文件，应当尽可能详细。
+# RenAhsAcme.github.io
+
+我的新版个人网站[算理留痕 | 刃律RenAhsAcme](https://RenAhsAcme.cc)现已上线，访问旧地址时将自动重定向至新网站。原有友链无需更新。
 
 <details>
       <summary>English Ver.</summary>
-This repository is a template for a personal repository, used to quickly generate all the necessary files in most cases. This is the README file used to display on the GitHub repository homepage, and it should be as detailed as possible.
+      
+My new personal website [算理留痕 | 刃律RenAhsAcme](https://RenAhsAcme.cc) is now live. Visiting the old address will automatically redirect you to the new website. Existing friend links do not need to be updated.
+
 </details>
